@@ -51,6 +51,7 @@ class RpcTestApplicationTests {
 
         ServerConfig serverConfig1 = new ServerConfig()
                 .setStopTimeout(0)
+                .setHost("0.0.0.0")
                 .setPort(22221)
                 .setProtocol(RpcConstants.PROTOCOL_TYPE_BOLT)
                 .setQueues(100).setCoreThreads(5).setMaxThreads(5);
@@ -109,6 +110,7 @@ class RpcTestApplicationTests {
         // Mock server restart
         serverConfig1 = new ServerConfig()
                 .setStopTimeout(0)
+                .setHost("0.0.0.0")
                 .setPort(22221)
                 .setProtocol(RpcConstants.PROTOCOL_TYPE_BOLT)
                 .setQueues(100).setCoreThreads(5).setMaxThreads(5);
