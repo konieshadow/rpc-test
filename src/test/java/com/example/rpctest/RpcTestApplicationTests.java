@@ -43,6 +43,12 @@ class RpcTestApplicationTests {
 
     @Test
     public void testReconnect() throws Exception {
+        String listenHost = System.getenv("LISTEN_HOST");
+        if (StringUtils.isEmpty(listenHost)) {
+            listenHost = "0.0.0.0";
+        }
+        LOGGER.info("Listen host is {}", listenHost);
+
         String serverHost = System.getenv("SERVER_HOST");
         if (StringUtils.isEmpty(serverHost)) {
             serverHost = "127.0.0.1";
@@ -51,7 +57,7 @@ class RpcTestApplicationTests {
 
         ServerConfig serverConfig1 = new ServerConfig()
                 .setStopTimeout(0)
-                .setHost("0.0.0.0")
+                .setHost(listenHost)
                 .setPort(22221)
                 .setProtocol(RpcConstants.PROTOCOL_TYPE_BOLT)
                 .setQueues(100).setCoreThreads(5).setMaxThreads(5);
@@ -110,7 +116,7 @@ class RpcTestApplicationTests {
         // Mock server restart
         serverConfig1 = new ServerConfig()
                 .setStopTimeout(0)
-                .setHost("0.0.0.0")
+                .setHost(listenHost)
                 .setPort(22221)
                 .setProtocol(RpcConstants.PROTOCOL_TYPE_BOLT)
                 .setQueues(100).setCoreThreads(5).setMaxThreads(5);
