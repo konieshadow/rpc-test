@@ -4,3 +4,4 @@ WORKDIR /app
 RUN --mount=type=cache,target=/root/.m2/repository mvn dependency:go-offline
 COPY src /app/src
 ENTRYPOINT sh
+EXPOSE 22221
