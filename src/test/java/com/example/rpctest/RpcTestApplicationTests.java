@@ -111,7 +111,7 @@ class RpcTestApplicationTests {
             try {
                 Assert.isTrue(e.getMessage().contains(LogCodes.ERROR_TARGET_URL_INVALID), "error message should contain code " + LogCodes.ERROR_TARGET_URL_INVALID + ", but got :" + e.getMessage());
             } catch (IllegalArgumentException ie) {
-                LOGGER.error("assert failed, ignore this time", ie);
+                LOGGER.error("assert failed, ignore this time, detail: {}", ie.getMessage());
             }
         }
 
